@@ -38,4 +38,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  
 </div>		
 </body>
+<script type="text/javascript">
+function vForm(){
+	var x=document.forms["form1"]["upwd"].value;
+	var y=document.forms["form1"]["pwd"].value;
+	if(x==null||x==""){
+		alert("请填写密码！");
+		return false;
+	}
+	
+}
+  
+
+</script>
 </html>

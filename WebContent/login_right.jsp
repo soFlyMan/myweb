@@ -6,16 +6,16 @@
     <div class="col-md-6 login-right">
 			  	<h3>已注册用户</h3>
 				<p>如果你有一个账户，请登录。</p>
-				<form>
+				<form action="UserServlet?method=login"method="post">
 				  <div>
 					<span>电子邮件<label>*</label></span>
-					<input type="text"> 
+					<input type="text"name="uname"> 
 				  </div>
 				  <div>
 					<span>密码<label>*</label></span>
-					<input type="text"> 
+					<input type="password"name="upwd"> 
 				  </div>
 				  <a class="forgot" href="#">忘记密码?</a>
-				  <input type="submit" value="Login">
+				  <input type="submit" value="登陆">
 			    </form>
 			   </div>	
