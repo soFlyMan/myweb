@@ -36,4 +36,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  <c:import url="footer.jsp"></c:import>
 </div>		
 </body>
+
+<script>
+ $(function(){
+	 $("#sub").bind("click",function(event){
+		 var  userpwd=$("#userpwd").val();
+		 var useremail=$("#useremail").val();
+		 if(userpwd==""||useremail==""){
+			 alert("登陆信息不能为空！");
+			  event.preventDefault();
+		 }
+	 })
+	 
+ })
+ </script>
 </html>

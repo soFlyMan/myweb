@@ -13,6 +13,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- start plugins -->
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/messages_zh.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -38,16 +40,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  
 </div>		
 </body>
+<script>
+$(document).ready(function(){
+	$("form").validate();
+})</script>
 <script type="text/javascript">
 function vForm(){
 	var x=document.forms["form1"]["upwd"].value;
 	var y=document.forms["form1"]["pwd"].value;
-	if(x==null||x==""){
-		alert("请填写密码！");
-		return false;
+	if(x!=y){
+		alert("两次输入的密码不相同，请重新输入！");
+		location.href='register.jsp';
+	return false;
+	
 	}
 	
 }
+  
+	
+
   
 
 </script>

@@ -12,12 +12,12 @@
 					<h3>个人信息</h3>
 					 <div>
 						<span>姓名<label>*</label></span>
-						<input type="text"name="usename"> 
+						<input type="text"name="usename"class="required"/> 
 					 </div>
 					
 					 <div>
 						 <span>电子邮件<label>*</label></span>
-						 <input type="text"name="uname"> 
+						 <input type="text"name="uname"class="required email"> 
 					 </div>
 					 <div class="clearfix"> </div>
 					   <a class="news-letter" href="#">
@@ -28,11 +28,11 @@
 						    <h3>登录信息</h3>
 							 <div>
 								<span>密码<label>*</label></span>
-								<input type="password"name="upwd">
+								<input type="password"name="upwd"class="required">
 							 </div>
 							 <div>
 								<span>确认密码<label>*</label></span>
-								<input type="password"name="pwd">
+								<input type="password"name="pwd"class="required">
 							 </div>
 							 <div class="clearfix"> </div>
 					 </div>
@@ -41,7 +41,7 @@
 					 	
 				
 				   
-					   <input type="submit" value="提交">
+					   <input type="submit" value="提交"onclick="return vForm()">
 					   <div class="clearfix"> </div>
 				   
 				
