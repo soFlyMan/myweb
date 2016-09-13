@@ -23,10 +23,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 	      <div class="content">
-	   	   <h2 class="m_3">正在上映的电影</h1>
+	   	  <h2 class="m_3">上映类型</h1>
+	   	  <h2 class="m_3">${minfo.dtype}：</h1>
       	       <div class="movie_top">
       	       
-      	        <c:import url="movie_col-md-9 movie_box.jsp"></c:import>
+      	        <c:import url="movie_col-md-9_box.jsp"></c:import>
+      	        
+      	        
       	        
                       <c:import url="movie_col-md-3.jsp"></c:import>
                       <div class="clearfix"> </div>

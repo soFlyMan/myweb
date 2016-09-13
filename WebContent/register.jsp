@@ -46,8 +46,8 @@ $(document).ready(function(){
 })</script>
 <script type="text/javascript">
 function vForm(){
-	var x=document.forms["form1"]["upwd"].value;
-	var y=document.forms["form1"]["pwd"].value;
+	var x=document.forms["form1"]["upawd"].value;
+	var y=document.forms["form1"]["pawd"].value;
 	if(x!=y){
 		alert("两次输入的密码不相同，请重新输入！");
 		location.href='register.jsp';

@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@page import="com.entity.*" %>
       	         <div class="col-md-9 movie_box">
                         <div class="grid images_3_of_2">
                         	<div class="movie_image">
                                 <span class="movie_rating">5.0</span>
-                                <img src="images/single.jpg" class="img-responsive" alt=""/>
+                                <img src="${minfo.dimage}" class="img-responsive" alt=""/>
                             </div>
                             <div class="movie_rate">
                             	<div class="rating_desc"><p>你的投票:</p></div>
@@ -31,82 +31,43 @@
 						  	   <div class="clearfix"> </div>
                             </div>
                         </div>
+
                         <div class="desc1 span_3_of_2">
-                        	<p class="movie_option"><strong>国家: </strong><a href="#">发行</a>, <a href="#">USA</a></p>
-                        	<p class="movie_option"><strong>年份: </strong>2014</p>
-                        	<p class="movie_option"><strong>类型: </strong><a href="#">冒险</a>, <a href="#">喜剧</a></p>
-                        	<p class="movie_option"><strong>上映日期: </strong>December 12, 2014</p>
-                        	<p class="movie_option"><strong>导演: </strong><a href="#">suffered </a></p>
-                        	<p class="movie_option"><strong>演员: </strong><a href="#">anything</a>, <a href="#">Lorem Ipsum</a>, <a href="#"> Virginia</a>, <a href="#"> Virginia</a>, <a href="#">variations</a>, <a href="#">variations</a>, <a href="#">variations</a>, <a href="#"> Virginia</a> <a href="#">...</a></p>
-                            <p class="movie_option"><strong>年龄限制: </strong>13</p> 
+                        	<p class="movie_option"><strong>国家: </strong><a href="#">发行</a>, <a href="#">${minfo.dcountry}</a></p>
+                        	
+                        	<p class="movie_option"><strong>类型: </strong><a href="typeServlet?dtype=${minfo.dtype}">${minfo.dtype}</a></p>
+                        	<p class="movie_option"><strong>上映日期: </strong>${minfo.dtime}</p>
+                        	<p class="movie_option"><strong>导演: </strong><a href="#">${minfo.ddirector}</a></p>
+                        	<p class="movie_option"><strong>主演: </strong><a href="#">${minfo.dactor}</a></p>
+                            <p class="movie_option"><strong>年龄限制: </strong>${minfo.dage}</p> 
                             <div class="down_btn"><a class="btn1" href="#"><span> </span>Download</a></div>
                          </div>
                         <div class="clearfix"> </div>
                         <p class="m_4">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
-		                <form>
-							<div class="to">
-		                     	<input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-							 	<input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="margin-left:3%">
-							</div>
+		                <form action="messageServlet?uemail=${user}" method="post">
+							
 							<div class="text">
-			                   <textarea value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message:</textarea>
+			                   <textarea value="Message:" name="message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message:</textarea>
 			                </div>
 			                <div class="form-submit1">
-					           <input name="submit" type="submit" id="submit" value="Submit Your Message"><br>
+					           <input name="submit" type="submit" id="submit" value="提交评论"><br>
 					        </div>
 							<div class="clearfix"></div>
                  		</form>
 		                <div class="single">
-		                <h1>10个评论</h1>
+		                <h1>评论</h1>
 		                <ul class="single_list">
+		                <c:forEach items="${messagelist }" var="m">
 					        <li>
 					            <div class="preview"><a href="#"><img src="images/2.jpg" class="img-responsive" alt=""></a></div>
 					            <div class="data">
-					                <div class="title">Movie  /  2小时前     /  <a href="#">回复</a></div>
-					                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+					                <div class="title">${m.uemail}  / <a href="#">回复</a></div>
+					                <p>${m.umessage}</p>
 					            </div>
 					            <div class="clearfix"></div>
 					        </li>
-					         <li>
-					            <div class="preview"><a href="#"><img src="images/3.jpg" class="img-responsive" alt=""></a></div>
-					            <div class="data">
-					                <div class="title">Wernay  /  2小时前  /  <a href="#">回复</a></div>
-					                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent </p>
-					            </div>
-					            <div class="clearfix"></div>
-					        </li>
-					         <li>
-					            <div class="preview"><a href="#"><img src="images/4.jpg" class="img-responsive" alt=""></a></div>
-					            <div class="data">
-					                <div class="title">mr.dev  /  2 小时前  /  <a href="#">回复</a></div>
-					                <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram,</p>
-					            </div>
-					           <div class="clearfix"></div>
-					        </li>
-					     	<li class="middle">
-					            <div class="preview"><a href="#"><img src="images/5.jpg" class="img-responsive" alt=""></a></div>
-					            <div class="data-middle">
-					                <div class="title">Wernay  /  2 小时前  /  <a href="#">回复</a></div>
-					                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-					            </div>
-					            <div class="clearfix"></div>
-					        </li>
-					        <li class="last-comment">
-					            <div class="preview"><a href="#"><img src="images/6.jpg" class="img-responsive" alt=""></a></div>
-					            <div class="data-last">
-					                <div class="title">mr.dev  /  2 小时前  /  <a href="#">回复</a></div>
-					                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit </p>
-					            </div>
-					            <div class="clearfix"></div>
-					        </li>
-					         <li>
-					            <div class="preview"><a href="#"><img src="images/7.jpg" class="img-responsive" alt=""></a></div>
-					            <div class="data">
-					                <div class="title">denpro  /  2 小时前  /  <a href="#">回复</a></div>
-					                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-					            </div>
-					            <div class="clearfix"></div>
-					        </li>
+		                </c:forEach>
+	
 			  			</ul>
                       </div>
                       </div>

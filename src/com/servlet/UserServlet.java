@@ -38,12 +38,14 @@ public class UserServlet extends HttpServlet {
 		//
 		String method= request.getParameter("method");
 		UsersDao ud=new UsersDaoImpl();
+	
 		if("login".equals(method)){
 			//获取单个值
-			String name=request.getParameter("uname");
-			String upwd=request.getParameter("upwd");
+			String uemail=request.getParameter("uemail");
+			String upawd=request.getParameter("upawd");
 			
-			System.out.println("uname: " + name + " upwd: " + upwd);
+			System.out.println("uemail: " + uemail + " upawd: " + upawd);
+			
 			//name=new String(name.getBytes("iso-8859-1"),"utf-8");
 			//System.out.println("name:"+name);
 			//获取一组值
@@ -55,7 +57,7 @@ public class UserServlet extends HttpServlet {
 			}
 			*/
 			/*
-			if("admin".equals(name) && "a123".equals(upwd)){
+			if("admin".equals(name) && "a123".equals(upawd)){
 				//转发跳转
 			    //request键范围中的值，只在转发的本次请求中有效
 				request.setAttribute("request", name);
@@ -72,18 +74,20 @@ public class UserServlet extends HttpServlet {
 			}
 			*/
 			
-		    boolean flag=ud.loginUser(name, upwd);
+		    boolean flag=ud.loginUser(uemail, upawd);
 		    if(flag){
+		    	request.getSession().setAttribute("user", uemail);
 		    	out.print("<script>alert('登录成功！！');location.href='index.jsp'</script>");
 		    }else{
 		    	out.print("<script>alert('登录失败！！');location.href='login.jsp'</script>");
 		    }
+		   
 		}else if("register".equals(method)){
-			String name=request.getParameter("uname");
-			String upwd=request.getParameter("upwd");
-			String birthday=request.getParameter("usename");
+			String uemail=request.getParameter("uemail");
+			String upawd=request.getParameter("upawd");
+			String uname=request.getParameter("uname");
 			//
-			Users user=new Users(name, upwd, birthday);
+			Users user=new Users(uemail, upawd, uname);
 			int num=ud.addUser(user);
 			if(num>0){
 		    	out.print("<script>alert('注册成功！！');location.href='login.jsp'</script>");

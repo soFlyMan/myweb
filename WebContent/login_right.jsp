@@ -9,11 +9,11 @@
 				<form action="UserServlet?method=login"method="post">
 				  <div>
 					<span>电子邮件<label>*</label></span>
-					<input type="text"name="uname"id="useremail"> 
+					<input type="text"name="uemail"id="useremail"> 
 				  </div>
 				  <div>
 					<span>密码<label>*</label></span>
-					<input type="password"name="upwd"id="userpwd"> 
+					<input type="password"name="upawd"id="userpwd"> 
 				  </div>
 				  <a class="forgot" href="#">忘记密码?</a>
 				  <input type="submit" value="登陆"id="sub">
